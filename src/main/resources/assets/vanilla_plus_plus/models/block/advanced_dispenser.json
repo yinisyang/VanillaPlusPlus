@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "minecraft:block/gold_block",
+    "front": "vanilla_plus_plus:block/advanced_dispenser_front",
+    "side": "minecraft:block/gold_block"
+  }
+}

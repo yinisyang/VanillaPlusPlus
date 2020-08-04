@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sss",
+    "sns",
+    "sss"
+  ],
+  "key": {
+    "s": {
+      "item": "vanilla_plus_plus:nether_star_shard"
+    },
+    "n": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "result": {
+    "item": "vanilla_plus_plus:nether_star_ingot",
+    "count": 1
+  }
+}

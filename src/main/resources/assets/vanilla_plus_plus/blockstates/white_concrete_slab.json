@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "vanilla_plus_plus:block/white_concrete_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/white_concrete"
+    },
+    "type=top": {
+      "model": "vanilla_plus_plus:block/white_concrete_slab_top"
+    }
+  }
+}

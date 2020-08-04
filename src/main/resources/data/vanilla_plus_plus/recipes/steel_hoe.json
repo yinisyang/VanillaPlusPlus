@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS ",
+    " s ",
+    " s "
+  ],
+  "key": {
+    "S": {
+      "item": "vanilla_plus_plus:steel_ingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "vanilla_plus_plus:steel_hoe",
+    "count": 1
+  }
+}

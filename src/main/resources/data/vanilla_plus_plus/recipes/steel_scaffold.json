@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SsS",
+    "S S",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "vanilla_plus_plus:steel_ingot"
+    },
+    "s": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "vanilla_plus_plus:steel_scaffold",
+    "count": 8
+  }
+}

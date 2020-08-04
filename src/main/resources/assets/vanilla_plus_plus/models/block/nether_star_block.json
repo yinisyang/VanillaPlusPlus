@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "vanilla_plus_plus:block/nether_star_block"
+  }
+}

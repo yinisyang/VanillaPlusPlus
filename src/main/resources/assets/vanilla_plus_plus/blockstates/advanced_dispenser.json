@@ -1,0 +1,26 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "vanilla_plus_plus:block/advanced_dispenser_vertical",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "vanilla_plus_plus:block/advanced_dispenser",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "vanilla_plus_plus:block/advanced_dispenser"
+    },
+    "facing=south": {
+      "model": "vanilla_plus_plus:block/advanced_dispenser",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "vanilla_plus_plus:block/advanced_dispenser_vertical"
+    },
+    "facing=west": {
+      "model": "vanilla_plus_plus:block/advanced_dispenser",
+      "y": 270
+    }
+  }
+}

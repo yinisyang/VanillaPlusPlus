@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ggg",
+    "gSg",
+    "gRg"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "vanilla_plus_plus:nether_star_shard"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "vanilla_plus_plus:advanced_dispenser",
+    "count": 1
+  }
+}

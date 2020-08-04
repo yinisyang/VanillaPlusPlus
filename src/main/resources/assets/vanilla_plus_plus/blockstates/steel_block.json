@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "heat=1": { "model": "vanilla_plus_plus:block/steel_block"},
+    "heat=2": { "model": "vanilla_plus_plus:block/steel_block"},
+    "heat=3": { "model": "vanilla_plus_plus:block/steel_block_heat_2"},
+    "heat=4": { "model": "vanilla_plus_plus:block/steel_block_heat_2"},
+    "heat=5": { "model": "vanilla_plus_plus:block/steel_block_heat_3"},
+    "heat=6": { "model": "vanilla_plus_plus:block/steel_block_heat_3"},
+    "heat=7": { "model": "vanilla_plus_plus:block/steel_block_heat_4"},
+    "heat=8": { "model": "vanilla_plus_plus:block/steel_block_heat_4"}
+  }
+}

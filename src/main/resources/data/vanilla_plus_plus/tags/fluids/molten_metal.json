@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values":
+  [
+    "vanilla_plus_plus:molten_iron",
+    "vanilla_plus_plus:flowing_molten_iron",
+    "vanilla_plus_plus:molten_steel",
+    "vanilla_plus_plus:flowing_molten_steel",
+    "vanilla_plus_plus:molten_gold",
+    "vanilla_plus_plus:flowing_molten_gold"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "vanilla_plus_plus:block/iron_block_heat_3"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "vanillaplusplus.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [],
+  "client": [
+    "ItemEntityMixin",
+    "WaterFluidMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

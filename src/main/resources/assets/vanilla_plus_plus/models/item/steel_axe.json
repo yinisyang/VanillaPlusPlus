@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "vanilla_plus_plus:item/steel_axe"
+  }
+}

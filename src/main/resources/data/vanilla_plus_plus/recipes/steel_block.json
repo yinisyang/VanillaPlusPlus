@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "sss",
+    "sss",
+    "sss"
+  ],
+  "key": {
+    "s": {
+      "item": "vanilla_plus_plus:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "vanilla_plus_plus:steel_block",
+    "count": 1
+  }
+}

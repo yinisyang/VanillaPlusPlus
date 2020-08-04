@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vanilla_plus_plus:sulfur_item"
+    },
+    {
+      "item": "vanilla_plus_plus:saltpeter_item"
+    },
+    {
+      "item": "minecraft:charcoal"
+    }
+  ],
+  "result": {
+    "item": "minecraft:gunpowder",
+    "count": 3
+  }
+}

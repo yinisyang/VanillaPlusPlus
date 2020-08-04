@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "vanilla_plus_plus",
+  "version": "${version}",
+  "name": "Vanilla++",
+  "description": "Additional Vanilla-esque Features",
+  "authors": [
+    "yinisyang"
+  ],
+  "contributors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/vanilla_plus_plus/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "vanillaplusplus.VanillaPlusPlusInitializer"
+    ],
+    "client": [
+      "vanillaplusplus.VanillaPlusPlusClientInitializer"
+    ],
+    "server": []
+  },
+  "mixins": [
+    "vanilla_plus_plus.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.9.0",
+    "fabric": "*"
+  }
+}
