@@ -27,7 +27,7 @@ public class VanillaPlusPlusInitializer implements ModInitializer {
         EntityRegistry.register();
         ItemRegistry.register();
         BiomeRegistry.register();
-
+        
         ItemDispenserBehavior witherBoneMealBehavior = new ItemDispenserBehavior() {
             protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
                 BlockPos blockPos = pointer.getBlockPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));

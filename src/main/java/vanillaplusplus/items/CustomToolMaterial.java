@@ -8,7 +8,8 @@ import net.minecraft.util.Lazy;
 import java.util.function.Supplier;
 
 public enum CustomToolMaterial implements ToolMaterial {
-    STEEL(4, 1700, 6.0f, 2.5f, 14, () -> Ingredient.ofItems(ItemRegistry.STEEL_INGOT));
+    STEEL(4, 1700, 6.0f, 2.5f, 14, () -> Ingredient.ofItems(ItemRegistry.STEEL_INGOT)),
+    NETHER_STAR_INGOT(4, 100, 5.0f, 4.0f, 24, () -> Ingredient.ofItems(ItemRegistry.NETHER_STAR_INGOT));
 
     private final int miningLevel;
     private final int itemDurability;
