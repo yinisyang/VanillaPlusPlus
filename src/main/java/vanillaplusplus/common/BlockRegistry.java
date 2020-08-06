@@ -29,6 +29,7 @@ public class BlockRegistry {
     public static final Block MELTABLE_GOLD_BLOCK = new CustomGoldBlock(FabricBlockSettings.of(Material.METAL).hardness(6.0f).requiresTool());
     public static final Block BEACON_EXTENDER = new BeaconExtender(FabricBlockSettings.of(Material.METAL).hardness(5.0f).requiresTool());
     public static final Block NETHER_STAR_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(5.0f).requiresTool());
+    public static final Block STAND = new StandBlock(FabricBlockSettings.copyOf(Blocks.ANVIL));
 
     public static final Block BLACK_CONCRETE_STAIRS = new CustomStairsBlock(Blocks.BLACK_CONCRETE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.BLACK_CONCRETE));
     public static final Block GRAY_CONCRETE_STAIRS = new CustomStairsBlock(Blocks.GRAY_CONCRETE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.BLACK_CONCRETE));
@@ -110,6 +111,7 @@ public class BlockRegistry {
         createBlock("spruce_chest", SPRUCE_CHEST);
         createBlock("beacon_extender", BEACON_EXTENDER);
         createBlock("nether_star_block", NETHER_STAR_BLOCK, new NetherStarBlockItem(NETHER_STAR_BLOCK, new Item.Settings().group(VPP_ITEM_GROUP)));
+        createBlock("stand", STAND);
 
         overrideBlock("iron_block", 135, 137, MELTABLE_IRON_BLOCK, ItemGroup.BUILDING_BLOCKS);
         overrideBlock("gold_block", 134, 136, MELTABLE_GOLD_BLOCK, ItemGroup.BUILDING_BLOCKS);
