@@ -1,5 +1,6 @@
 package vanillaplusplus.fluids;
 
+import net.minecraft.block.Blocks;
 import vanillaplusplus.common.BlockRegistry;
 import vanillaplusplus.common.FluidRegistry;
 import vanillaplusplus.common.ItemRegistry;
@@ -14,7 +15,7 @@ import net.minecraft.state.StateManager;
 public abstract class GoldFluid extends CoolableFluid {
     @Override
     public Block getCooledBlock() {
-        return BlockRegistry.MELTABLE_GOLD_BLOCK;
+        return Blocks.GOLD_BLOCK;
     }
 
     @Override

@@ -1,8 +1,7 @@
 package vanillaplusplus.blocks.meltable;
 
-import vanillaplusplus.entities.GoldBlockEntity;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.world.BlockView;
+import net.minecraft.block.Block;
+import vanillaplusplus.common.FluidRegistry;
 
 public class CustomGoldBlock extends MeltableBlock {
     public CustomGoldBlock(Settings settings) {
@@ -10,7 +9,7 @@ public class CustomGoldBlock extends MeltableBlock {
     }
 
     @Override
-    public BlockEntity createBlockEntity(BlockView world) {
-        return new GoldBlockEntity();
+    public Block getMoltenBlock() {
+        return FluidRegistry.MOLTEN_GOLD_BLOCK;
     }
 }

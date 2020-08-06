@@ -1,12 +1,8 @@
 {
   "variants": {
     "heat=1": { "model": "minecraft:block/gold_block"},
-    "heat=2": { "model": "minecraft:block/gold_block"},
-    "heat=3": { "model": "minecraft:block/iron_block"},
-    "heat=4": { "model": "minecraft:block/iron_block"},
-    "heat=5": { "model": "minecraft:block/emerald_block"},
-    "heat=6": { "model": "minecraft:block/emerald_block"},
-    "heat=7": { "model": "minecraft:block/diamond_block"},
-    "heat=8": { "model": "minecraft:block/diamond_block"}
+    "heat=2": { "model": "minecraft:block/iron_block"},
+    "heat=3": { "model": "minecraft:block/emerald_block"},
+    "heat=4": { "model": "minecraft:block/diamond_block"}
   }
 }

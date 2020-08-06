@@ -11,7 +11,7 @@ import net.minecraft.state.StateManager;
 
 public abstract class IronFluid extends CoolableFluid {
     public Block getCooledBlock() {
-        return BlockRegistry.MELTABLE_IRON_BLOCK;
+        return Blocks.IRON_BLOCK;
     }
 
     @Override

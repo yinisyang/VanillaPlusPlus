@@ -1,15 +1,15 @@
 package vanillaplusplus.common;
 
+import net.fabricmc.fabric.api.tag.TagRegistry;
+import net.minecraft.tag.Tag;
+import vanillaplusplus.VanillaPlusPlusInitializer;
 import vanillaplusplus.blocks.*;
 import vanillaplusplus.blocks.chests.CustomChest;
-import vanillaplusplus.blocks.meltable.CustomGoldBlock;
-import vanillaplusplus.blocks.meltable.CustomIronBlock;
 import vanillaplusplus.blocks.meltable.SteelBlock;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -20,13 +20,14 @@ import static vanillaplusplus.VanillaPlusPlusInitializer.VPP_ITEM_GROUP;
 
 public class BlockRegistry {
 
+    // Tags
+    public static Tag<Block> MELTABLE_BLOCK_TAG = TagRegistry.block(new Identifier(VanillaPlusPlusInitializer.MOD_ID, "meltable"));
+
     public static final Block SULFUR_ORE_BLOCK = new SulfurOreBlock(FabricBlockSettings.of(Material.STONE).hardness(3.0f));
     public static final Block SALTPETER_ORE_BLOCK = new SaltpeterOreBlock(FabricBlockSettings.of(Material.STONE).hardness(4.0f));
     public static final Block ADVANCED_DISPENSER_BLOCK = new AdvancedDispenser(FabricBlockSettings.of(Material.STONE).hardness(4.0f).requiresTool());
     public static final Block STEEL_BLOCK = new SteelBlock(FabricBlockSettings.of(Material.METAL).hardness(7.0f).requiresTool());
     public static final Block STEEL_SCAFFOLD = new SteelScaffold(FabricBlockSettings.of(Material.METAL).nonOpaque());
-    public static final Block MELTABLE_IRON_BLOCK = new CustomIronBlock(FabricBlockSettings.of(Material.METAL).hardness(6.0f).requiresTool());
-    public static final Block MELTABLE_GOLD_BLOCK = new CustomGoldBlock(FabricBlockSettings.of(Material.METAL).hardness(6.0f).requiresTool());
     public static final Block BEACON_EXTENDER = new BeaconExtender(FabricBlockSettings.of(Material.METAL).hardness(5.0f).requiresTool());
     public static final Block NETHER_STAR_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(5.0f).requiresTool());
     public static final Block STAND = new StandBlock(FabricBlockSettings.copyOf(Blocks.ANVIL));
@@ -112,14 +113,9 @@ public class BlockRegistry {
         createBlock("beacon_extender", BEACON_EXTENDER);
         createBlock("nether_star_block", NETHER_STAR_BLOCK, new NetherStarBlockItem(NETHER_STAR_BLOCK, new Item.Settings().group(VPP_ITEM_GROUP)));
         createBlock("stand", STAND);
-
-        overrideBlock("iron_block", 135, 137, MELTABLE_IRON_BLOCK, ItemGroup.BUILDING_BLOCKS);
-        overrideBlock("gold_block", 134, 136, MELTABLE_GOLD_BLOCK, ItemGroup.BUILDING_BLOCKS);
     }
 
     private static void createBlock(String name, Block block) {
-        //Registry.register(Registry.BLOCK, new Identifier(MOD_ID, name), block);
-        //Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), new BlockItem(block, new Item.Settings().group(VPP_ITEM_GROUP)));
         createBlock(name, block, null);
     }
 
@@ -129,10 +125,5 @@ public class BlockRegistry {
         }
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, name), block);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, name), blockItem);
-    }
-
-    private static void overrideBlock(String name, int blockRawId, int blockItemRawId, Block block, ItemGroup itemGroup) {
-        Registry.register(Registry.BLOCK, blockRawId, "minecraft:" + name, block);
-        Registry.register(Registry.ITEM, blockItemRawId, "minecraft:" + name, new BlockItem(block, new Item.Settings().group(itemGroup)));
     }
 }

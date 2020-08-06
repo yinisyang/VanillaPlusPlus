@@ -1,8 +1,7 @@
 package vanillaplusplus.blocks.meltable;
 
-import vanillaplusplus.entities.IronBlockEntity;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.world.BlockView;
+import net.minecraft.block.Block;
+import vanillaplusplus.common.FluidRegistry;
 
 public class CustomIronBlock extends MeltableBlock {
     public CustomIronBlock(Settings settings) {
@@ -10,7 +9,7 @@ public class CustomIronBlock extends MeltableBlock {
     }
 
     @Override
-    public BlockEntity createBlockEntity(BlockView world) {
-        return new IronBlockEntity();
+    public Block getMoltenBlock() {
+        return FluidRegistry.MOLTEN_IRON_BLOCK;
     }
 }

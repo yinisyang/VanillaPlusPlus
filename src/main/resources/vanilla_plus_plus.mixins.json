@@ -5,7 +5,9 @@
   "mixins": [],
   "client": [
     "ItemEntityMixin",
-    "WaterFluidMixin"
+    "WaterFluidMixin",
+    "BlocksMixin",
+    "MagmaBlockMixin"
   ],
   "server": [],
   "injectors": {

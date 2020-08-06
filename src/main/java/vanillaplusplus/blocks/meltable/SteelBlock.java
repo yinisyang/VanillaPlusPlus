@@ -1,8 +1,7 @@
 package vanillaplusplus.blocks.meltable;
 
-import vanillaplusplus.entities.SteelBlockEntity;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.world.BlockView;
+import net.minecraft.block.Block;
+import vanillaplusplus.common.FluidRegistry;
 
 public class SteelBlock extends MeltableBlock {
     public SteelBlock(Settings settings) {
@@ -10,7 +9,7 @@ public class SteelBlock extends MeltableBlock {
     }
 
     @Override
-    public BlockEntity createBlockEntity(BlockView world) {
-        return new SteelBlockEntity();
+    public Block getMoltenBlock() {
+        return FluidRegistry.MOLTEN_STEEL_BLOCK;
     }
 }
