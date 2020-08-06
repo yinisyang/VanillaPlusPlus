@@ -7,6 +7,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -35,6 +37,10 @@ public class StandBlock extends Block implements BlockEntityProvider {
         } else { // If inventory is full
             player.inventory.offerOrDrop(world, inventory.getStack(0));
             inventory.removeStack(0);
+        }
+
+        if (world.isClient) {
+            world.playSound(player, blockPos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1.0f, 1.0f);
         }
 
         return ActionResult.CONSUME;
