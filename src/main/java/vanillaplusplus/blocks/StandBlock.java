@@ -6,6 +6,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -38,10 +41,11 @@ public class StandBlock extends Block implements BlockEntityProvider {
         if (inventory.getStack(0).isEmpty()) {
             inventory.setStack(0, player.getStackInHand(hand).split(1));
         } else { // If inventory is full
-            if (isCenter(world, blockPos)) {
+            if (isCenter(world, blockPos) && player.getStackInHand(hand).getItem() == Items.LAPIS_LAZULI) {
                 ItemStack result = craft(blockPos, world);
                 if (!result.isEmpty()) {
                     inventory.setStack(0, result);
+                    player.getStackInHand(hand).decrement(1);
 
                     ((Inventory)world.getBlockEntity(blockPos.south().south())).removeStack(0);
                     ((Inventory)world.getBlockEntity(blockPos.west().west())).removeStack(0);
@@ -50,6 +54,7 @@ public class StandBlock extends Block implements BlockEntityProvider {
 
                     if (world.isClient) {
                         world.playSound(player, blockPos, SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 0.6f, 1.0f);
+                        world.addParticle(ParticleTypes.SMOKE, blockPos.getX(), blockPos.up().getY(), blockPos.getZ(), 0, 0, 0);
                     }
                 } else {
                     player.inventory.offerOrDrop(world, inventory.getStack(0));
