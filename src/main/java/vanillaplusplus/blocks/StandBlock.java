@@ -1,8 +1,6 @@
 package vanillaplusplus.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockEntityProvider;
-import net.minecraft.block.BlockState;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
@@ -14,6 +12,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import vanillaplusplus.common.BlockRegistry;
@@ -86,5 +86,18 @@ public class StandBlock extends Block implements BlockEntityProvider {
         Item east = ((Inventory)world.getBlockEntity(pos.east().east())).getStack(0).getItem();
 
         return ItemStandRecipes.getResultIfRecipeExists(centerItem, south, west, north, east);
+    }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
+        VoxelShape middle = Block.createCuboidShape(3, 3, 3, 13, 13, 13);
+        VoxelShape bottom = Block.createCuboidShape(0, 0, 0, 16, 3, 16);
+        VoxelShape top = Block.createCuboidShape(0, 13, 0, 16, 16, 16);
+        return VoxelShapes.union(bottom, middle, top);
     }
 }
