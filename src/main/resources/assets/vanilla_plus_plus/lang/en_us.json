@@ -17,6 +17,12 @@
   "item.vanilla_plus_plus.steel_hoe": "Steel Hoe",
   "item.vanilla_plus_plus.dynamite": "Dynamite",
   "item.vanilla_plus_plus.nether_star_ingot": "Nether Star Ingot",
+  "item.vanilla_plus_plus.beacon_linker": "Beacon Linker",
+  "item.vanilla_plus_plus.nether_star_shovel": "Nether Star Shovel",
+  "item.vanilla_plus_plus.nether_star_axe": "Nether Star Axe",
+  "item.vanilla_plus_plus.nether_star_sword": "Nether Star Sword",
+  "item.vanilla_plus_plus.nether_star_pickaxe": "Nether Star Pickaxe",
+  "item.vanilla_plus_plus.nether_star_hoe": "Nether Star Hoe",
 
   "block.vanilla_plus_plus.sulfur_ore": "Sulfur Ore",
   "block.vanilla_plus_plus.saltpeter_ore": "Saltpeter Ore",
@@ -54,5 +60,9 @@
   "block.vanilla_plus_plus.yellow_concrete_slab": "Yellow Concrete Slab",
   "block.vanilla_plus_plus.orange_concrete_slab": "Orange Concrete Slab",
   "block.vanilla_plus_plus.steel_block": "Block of Steel",
-  "block.vanilla_plus_plus.steel_scaffold": "Steel Scaffold"
+  "block.vanilla_plus_plus.steel_scaffold": "Steel Scaffold",
+  "block.vanilla_plus_plus.spruce_chest": "Spruce Chest",
+  "block.vanilla_plus_plus.beacon_extender": "Beacon Extender",
+  "block.vanilla_plus_plus.nether_star_block": "Nether Star Block",
+  "block.vanilla_plus_plus.stand": "Item Stand"
 }
