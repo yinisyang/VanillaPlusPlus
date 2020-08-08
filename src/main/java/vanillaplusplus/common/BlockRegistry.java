@@ -1,6 +1,8 @@
 package vanillaplusplus.common;
 
 import net.fabricmc.fabric.api.tag.TagRegistry;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ScaffoldingItem;
 import net.minecraft.tag.Tag;
 import vanillaplusplus.VanillaPlusPlusInitializer;
 import vanillaplusplus.blocks.*;
@@ -27,9 +29,9 @@ public class BlockRegistry {
     public static final Block SALTPETER_ORE_BLOCK = new SaltpeterOreBlock(FabricBlockSettings.of(Material.STONE).hardness(4.0f));
     public static final Block ADVANCED_DISPENSER_BLOCK = new AdvancedDispenser(FabricBlockSettings.of(Material.STONE).hardness(4.0f).requiresTool());
     public static final Block STEEL_BLOCK = new SteelBlock(FabricBlockSettings.of(Material.METAL).hardness(7.0f).requiresTool());
-    public static final Block STEEL_SCAFFOLD = new SteelScaffold(FabricBlockSettings.of(Material.METAL).nonOpaque());
+    public static final Block STEEL_SCAFFOLD = new SteelScaffold(FabricBlockSettings.of(Material.METAL).nonOpaque().noCollision().dynamicBounds());
     public static final Block BEACON_EXTENDER = new BeaconExtender(FabricBlockSettings.of(Material.METAL).hardness(5.0f).requiresTool());
-    public static final Block NETHER_STAR_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(5.0f).requiresTool());
+    public static final Block NETHER_STAR_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f).requiresTool());
     public static final Block STAND = new StandBlock(FabricBlockSettings.copyOf(Blocks.ANVIL));
 
     public static final Block BLACK_CONCRETE_STAIRS = new CustomStairsBlock(Blocks.BLACK_CONCRETE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.BLACK_CONCRETE));
@@ -76,7 +78,7 @@ public class BlockRegistry {
         createBlock("saltpeter_ore", SALTPETER_ORE_BLOCK);
         createBlock("advanced_dispenser", ADVANCED_DISPENSER_BLOCK);
         createBlock("steel_block", STEEL_BLOCK);
-        createBlock("steel_scaffold", STEEL_SCAFFOLD);
+        createBlock("steel_scaffold", STEEL_SCAFFOLD, new ScaffoldingItem(STEEL_SCAFFOLD, new Item.Settings().group(VPP_ITEM_GROUP)));
         createBlock("black_concrete_stairs", BLACK_CONCRETE_STAIRS);
         createBlock("red_concrete_stairs", RED_CONCRETE_STAIRS);
         createBlock("blue_concrete_stairs", BLUE_CONCRETE_STAIRS);
@@ -109,8 +111,8 @@ public class BlockRegistry {
         createBlock("purple_concrete_slab", PURPLE_CONCRETE_SLABS);
         createBlock("yellow_concrete_slab", YELLOW_CONCRETE_SLABS);
         createBlock("orange_concrete_slab", ORANGE_CONCRETE_SLABS);
-        createBlock("spruce_chest", SPRUCE_CHEST);
-        createBlock("beacon_extender", BEACON_EXTENDER);
+        //createBlock("spruce_chest", SPRUCE_CHEST);
+        //createBlock("beacon_extender", BEACON_EXTENDER);
         createBlock("nether_star_block", NETHER_STAR_BLOCK, new NetherStarBlockItem(NETHER_STAR_BLOCK, new Item.Settings().group(VPP_ITEM_GROUP)));
         createBlock("stand", STAND);
     }
