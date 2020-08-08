@@ -28,11 +28,11 @@ public class ItemRegistry {
     public static final Item NETHER_STAR_INGOT = new NetherStarIngotItem(new Item.Settings().group(VPP_ITEM_GROUP));
 
     // Tools
-    public static final ToolItem STEEL_SHOVEL = new ShovelItem(CustomToolMaterial.STEEL, 2.5f, -3.0f, new Item.Settings().group(VPP_ITEM_GROUP));
-    public static final ToolItem STEEL_SWORD = new SwordItem(CustomToolMaterial.STEEL, 6, 1.0f, new Item.Settings().group(VPP_ITEM_GROUP));
-    public static final ToolItem STEEL_AXE = new CustomAxe(CustomToolMaterial.STEEL, 5f, -1.0f, new Item.Settings().group(VPP_ITEM_GROUP));
-    public static final ToolItem STEEL_PICKAXE = new CustomPickaxe(CustomToolMaterial.STEEL, 4, -1.0f, new Item.Settings().group(VPP_ITEM_GROUP));
-    public static final ToolItem STEEL_HOE = new CustomHoe(CustomToolMaterial.STEEL, 2, -1.0f, new Item.Settings().group(VPP_ITEM_GROUP));
+    public static final ToolItem STEEL_SHOVEL = new ShovelItem(CustomToolMaterial.STEEL, 1.5f, -3.0f, new Item.Settings().group(VPP_ITEM_GROUP));
+    public static final ToolItem STEEL_SWORD = new SwordItem(CustomToolMaterial.STEEL, 4, -2.4f, new Item.Settings().group(VPP_ITEM_GROUP));
+    public static final ToolItem STEEL_AXE = new CustomAxe(CustomToolMaterial.STEEL, 5.5f, -3.1f, new Item.Settings().group(VPP_ITEM_GROUP));
+    public static final ToolItem STEEL_PICKAXE = new CustomPickaxe(CustomToolMaterial.STEEL, 1, -2.8f, new Item.Settings().group(VPP_ITEM_GROUP));
+    public static final ToolItem STEEL_HOE = new CustomHoe(CustomToolMaterial.STEEL, -2, -1.0f, new Item.Settings().group(VPP_ITEM_GROUP));
     public static final ToolItem NETHER_STAR_SHOVEL = new ShovelItem(CustomToolMaterial.NETHER_STAR_INGOT, 3.0f, -3.0f, new Item.Settings().group(VPP_ITEM_GROUP));
     public static final ToolItem NETHER_STAR_SWORD = new SwordItem(CustomToolMaterial.NETHER_STAR_INGOT, 8, 1.5f, new Item.Settings().group(VPP_ITEM_GROUP));
     public static final ToolItem NETHER_STAR_AXE = new CustomAxe(CustomToolMaterial.NETHER_STAR_INGOT, 5.5f, -1.0f, new Item.Settings().group(VPP_ITEM_GROUP));
@@ -51,7 +51,7 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "molten_gold_bucket"), MOLTEN_GOLD_BUCKET);
         Registry.register(Registry.ITEM, 367, "minecraft:coal_block", new CustomCoalBlockItem());
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dynamite"), DYNAMITE);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "beacon_linker"), BEACON_LINKER);
+        //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "beacon_linker"), BEACON_LINKER);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nether_star_ingot"), NETHER_STAR_INGOT);
 
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_shovel"), STEEL_SHOVEL);
@@ -60,10 +60,10 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_pickaxe"), STEEL_PICKAXE);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_hoe"), STEEL_HOE);
 
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nether_star_shovel"), NETHER_STAR_SHOVEL);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nether_star_sword"), NETHER_STAR_SWORD);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nether_star_axe"), NETHER_STAR_AXE);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nether_star_pickaxe"), NETHER_STAR_PICKAXE);
-        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nether_star_hoe"), NETHER_STAR_HOE);
+        //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nether_star_shovel"), NETHER_STAR_SHOVEL);
+        //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nether_star_sword"), NETHER_STAR_SWORD);
+        //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nether_star_axe"), NETHER_STAR_AXE);
+        //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nether_star_pickaxe"), NETHER_STAR_PICKAXE);
+        //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nether_star_hoe"), NETHER_STAR_HOE);
     }
 }

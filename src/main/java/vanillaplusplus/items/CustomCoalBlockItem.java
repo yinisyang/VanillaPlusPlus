@@ -1,5 +1,6 @@
 package vanillaplusplus.items;
 
+import net.minecraft.item.ItemGroup;
 import vanillaplusplus.VanillaPlusPlusInitializer;
 import vanillaplusplus.common.FluidRegistry;
 import net.minecraft.block.Blocks;
@@ -11,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 
 public class CustomCoalBlockItem extends BlockItem {
     public CustomCoalBlockItem() {
-        super(Blocks.COAL_BLOCK, new Item.Settings().group(VanillaPlusPlusInitializer.VPP_ITEM_GROUP).fireproof());
+        super(Blocks.COAL_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS).fireproof());
     }
 
     @Override
