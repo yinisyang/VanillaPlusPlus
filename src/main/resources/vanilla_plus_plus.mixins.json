@@ -5,10 +5,10 @@
   "mixins": [],
   "client": [
     "ItemEntityMixin",
-    "WaterFluidMixin",
     "BlocksMixin",
     "MagmaBlockMixin",
-    "ClientPlayNetworkHandlerMixin"
+    "ClientPlayNetworkHandlerMixin",
+    "FluidBlockMixin"
   ],
   "server": [],
   "injectors": {
