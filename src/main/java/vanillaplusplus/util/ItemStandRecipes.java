@@ -12,17 +12,18 @@ public class ItemStandRecipes {
             .withIngredient(Items.SNOWBALL, 1)
             .withIngredient(Items.ICE, 1)
             .withIngredient(Items.LAPIS_LAZULI, 2)
-            .withOutput(new ItemStack(Items.ENCHANTED_BOOK), Enchantments.FROST_WALKER, 1);
+            .withOutput(Items.ENCHANTED_BOOK, Enchantments.FROST_WALKER, 1);
     private static final ItemStandRecipe SHARPNESS_ONE = ItemStandRecipe.create()
             .withCenterIngredient(Items.BOOK)
             .withIngredient(Items.QUARTZ, 3)
             .withIngredient(Items.LAPIS_LAZULI, 1)
-            .withOutput(new ItemStack(Items.ENCHANTED_BOOK), Enchantments.SHARPNESS, 1);
+            .withOutput(Items.ENCHANTED_BOOK, Enchantments.SHARPNESS, 1);
     private static final ItemStandRecipe SHARPNESS_FIVE = ItemStandRecipe.create()
             .withCenterIngredient(Items.BOOK)
-            .withIngredient(Items.DIAMOND_BLOCK, 2)
+            .withIngredient(Items.DIAMOND_BLOCK, 1)
             .withIngredient(Items.LAPIS_BLOCK, 2)
-            .withOutput(new ItemStack(Items.ENCHANTED_BOOK), Enchantments.SHARPNESS, 5);
+            .withEnchantedBookIngredient(Enchantments.SHARPNESS, 4)
+            .withOutput(Items.ENCHANTED_BOOK, Enchantments.SHARPNESS, 5);
 
     private static List<ItemStandRecipe> RECIPES = new ArrayList<>();
     static {
@@ -31,7 +32,7 @@ public class ItemStandRecipes {
         RECIPES.add(SHARPNESS_FIVE);
     }
 
-    public static ItemStack getResultIfRecipeExists(Item centerItem, Item item1, Item item2, Item item3, Item item4) {
+    public static ItemStack getResultIfRecipeExists(Item centerItem, ItemStack item1, ItemStack item2, ItemStack item3, ItemStack item4) {
         for (ItemStandRecipe recipe: RECIPES) {
             if (recipe.matchesInputs(centerItem, item1, item2, item3, item4)) {
                 return recipe.getOutput();

@@ -2,12 +2,12 @@ package vanillaplusplus.blocks;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -71,7 +71,18 @@ public class StandBlock extends Block implements BlockEntityProvider {
             world.playSound(player, blockPos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 0.5f, 1.0f);
         }
 
+        ((StandBlockEntity)world.getBlockEntity(blockPos)).markDirty(world);
+
         return ActionResult.CONSUME;
+    }
+
+    @Override
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        super.onBreak(world, pos, state, player);
+
+        Inventory inv = (Inventory)world.getBlockEntity(pos);
+        ItemEntity stack = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), inv.getStack(0));
+        world.spawnEntity(stack);
     }
 
     private boolean isCenter(World world, BlockPos pos) {
@@ -85,10 +96,10 @@ public class StandBlock extends Block implements BlockEntityProvider {
 
     private ItemStack craft(BlockPos pos, World world) {
         Item centerItem = ((Inventory)world.getBlockEntity(pos)).getStack(0).getItem();
-        Item south = ((Inventory)world.getBlockEntity(pos.south().south())).getStack(0).getItem();
-        Item west = ((Inventory)world.getBlockEntity(pos.west().west())).getStack(0).getItem();
-        Item north = ((Inventory)world.getBlockEntity(pos.north().north())).getStack(0).getItem();
-        Item east = ((Inventory)world.getBlockEntity(pos.east().east())).getStack(0).getItem();
+        ItemStack south = ((Inventory)world.getBlockEntity(pos.south().south())).getStack(0);
+        ItemStack west = ((Inventory)world.getBlockEntity(pos.west().west())).getStack(0);
+        ItemStack north = ((Inventory)world.getBlockEntity(pos.north().north())).getStack(0);
+        ItemStack east = ((Inventory)world.getBlockEntity(pos.east().east())).getStack(0);
 
         return ItemStandRecipes.getResultIfRecipeExists(centerItem, south, west, north, east);
     }
