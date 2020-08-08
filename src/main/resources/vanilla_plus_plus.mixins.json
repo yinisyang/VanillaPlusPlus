@@ -7,7 +7,8 @@
     "ItemEntityMixin",
     "WaterFluidMixin",
     "BlocksMixin",
-    "MagmaBlockMixin"
+    "MagmaBlockMixin",
+    "ClientPlayNetworkHandlerMixin"
   ],
   "server": [],
   "injectors": {
