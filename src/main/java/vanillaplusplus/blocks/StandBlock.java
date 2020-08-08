@@ -47,7 +47,7 @@ public class StandBlock extends Block implements BlockEntityProvider {
                 Inventory north = (Inventory)world.getBlockEntity(blockPos.north(2));
                 Inventory east = (Inventory)world.getBlockEntity(blockPos.east(2));
 
-                ItemStack result = ItemStandRecipes.getResultIfRecipeExists(inventory.getStack(0), south.getStack(0), west.getStack(0), north.getStack(0), east.getStack(0));
+                ItemStack result = ItemStandRecipes.getResultIfRecipeExists(player, inventory.getStack(0), south.getStack(0), west.getStack(0), north.getStack(0), east.getStack(0));
                 if (!result.isEmpty()) {
                     inventory.setStack(0, result);
                     player.getStackInHand(hand).decrement(1);

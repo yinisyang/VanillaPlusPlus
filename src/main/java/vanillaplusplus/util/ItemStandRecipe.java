@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 import java.util.HashMap;
@@ -19,13 +20,12 @@ public class ItemStandRecipe {
     private ItemStack centerIngredient;
     private Map<Item, Integer> ingredients;
     private EnchantmentLevelEntry enchantedBookIngredientData;
+    private int baseExperienceUsed;
 
-    public static ItemStandRecipe create() {
-        return new ItemStandRecipe();
-    }
-
-    private ItemStandRecipe() {
+    public ItemStandRecipe() {
         this.ingredients = new HashMap<>();
+        this.centerIngredient = new ItemStack(Items.BOOK); // Have book be default center item
+        this.baseExperienceUsed = 20;
     }
 
     ItemStandRecipe withIngredient(Item item, int amount) {
@@ -33,10 +33,25 @@ public class ItemStandRecipe {
         return this;
     }
 
+    ItemStandRecipe withIngredient(Item item) {
+        return withIngredient(item, 1);
+    }
+
+    // Adds the output of the incoming recipe to the ingredients
+    ItemStandRecipe withIngredient(ItemStandRecipe recipe) {
+        if (recipe.getOutput().getItem() == Items.ENCHANTED_BOOK) {
+            ListTag listTag = EnchantedBookItem.getEnchantmentTag(recipe.getOutput());
+            CompoundTag cTag = listTag.getCompound(0);
+            int level = cTag.getShort("lvl");
+            String id = cTag.getString("id");
+            return withEnchantedBookIngredient(Registry.ENCHANTMENT.get(new Identifier(id)), level);
+        }
+        return withIngredient(recipe.getOutput().getItem());
+    }
+
     ItemStandRecipe withEnchantedBookIngredient(Enchantment enchantment, int level) {
-        ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
         this.enchantedBookIngredientData = new EnchantmentLevelEntry(enchantment, level);
-        this.ingredients.merge(book.getItem(), 1, Integer::sum);
+        this.ingredients.merge(Items.ENCHANTED_BOOK, 1, Integer::sum);
         return this;
     }
 
@@ -57,6 +72,19 @@ public class ItemStandRecipe {
         return this;
     }
 
+    ItemStandRecipe withOutput(Enchantment enchantment, int level) {
+        return withOutput(Items.ENCHANTED_BOOK, enchantment, level);
+    }
+
+    ItemStandRecipe withOutput(Enchantment enchantment) {
+        return withOutput(enchantment, 1);
+    }
+
+    ItemStandRecipe withBaseExperienceUsed(int experience) {
+        this.baseExperienceUsed = experience;
+        return this;
+    }
+
     boolean matchesInputs(ItemStack centerItem, ItemStack... testInputs) {
        Map<Item, Integer> test = convertToMap(testInputs);
 
@@ -74,13 +102,15 @@ public class ItemStandRecipe {
                }
            }
        }
-
-
        return this.ingredients.equals(test) && this.centerIngredient.isItemEqual(centerItem) && enchantmentMatches;
     }
 
-    ItemStack getOutput() {
+    public ItemStack getOutput() {
         return this.output;
+    }
+
+    public int getExperienceUsed() {
+        return this.baseExperienceUsed * this.enchantedBookIngredientData.level;
     }
 
     private Map<Item, Integer> convertToMap(ItemStack[] convertInputs) {
