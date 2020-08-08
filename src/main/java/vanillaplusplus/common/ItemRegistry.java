@@ -29,7 +29,7 @@ public class ItemRegistry {
 
     // Tools
     public static final ToolItem STEEL_SHOVEL = new ShovelItem(CustomToolMaterial.STEEL, 1.5f, -3.0f, new Item.Settings().group(VPP_ITEM_GROUP));
-    public static final ToolItem STEEL_SWORD = new SwordItem(CustomToolMaterial.STEEL, 4, -2.4f, new Item.Settings().group(VPP_ITEM_GROUP));
+    public static final ToolItem STEEL_SWORD = new SwordItem(CustomToolMaterial.STEEL, 3, -2.4f, new Item.Settings().group(VPP_ITEM_GROUP));
     public static final ToolItem STEEL_AXE = new CustomAxe(CustomToolMaterial.STEEL, 5.5f, -3.1f, new Item.Settings().group(VPP_ITEM_GROUP));
     public static final ToolItem STEEL_PICKAXE = new CustomPickaxe(CustomToolMaterial.STEEL, 1, -2.8f, new Item.Settings().group(VPP_ITEM_GROUP));
     public static final ToolItem STEEL_HOE = new CustomHoe(CustomToolMaterial.STEEL, -2, -1.0f, new Item.Settings().group(VPP_ITEM_GROUP));
