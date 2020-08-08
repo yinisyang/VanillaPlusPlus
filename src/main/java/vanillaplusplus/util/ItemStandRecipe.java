@@ -16,7 +16,7 @@ import java.util.Map;
 public class ItemStandRecipe {
 
     private ItemStack output;
-    private Item centerIngredient;
+    private ItemStack centerIngredient;
     private Map<Item, Integer> ingredients;
     private EnchantmentLevelEntry enchantedBookIngredientData;
 
@@ -41,7 +41,7 @@ public class ItemStandRecipe {
     }
 
     ItemStandRecipe withCenterIngredient(Item item) {
-        this.centerIngredient = item;
+        this.centerIngredient = new ItemStack(item);
         return this;
     }
 
@@ -57,7 +57,7 @@ public class ItemStandRecipe {
         return this;
     }
 
-    boolean matchesInputs(Item centerItem, ItemStack... testInputs) {
+    boolean matchesInputs(ItemStack centerItem, ItemStack... testInputs) {
        Map<Item, Integer> test = convertToMap(testInputs);
 
        boolean enchantmentMatches = true;
@@ -76,7 +76,7 @@ public class ItemStandRecipe {
        }
 
 
-       return this.ingredients.equals(test) && this.centerIngredient == centerItem && enchantmentMatches;
+       return this.ingredients.equals(test) && this.centerIngredient.isItemEqual(centerItem) && enchantmentMatches;
     }
 
     ItemStack getOutput() {

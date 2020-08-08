@@ -42,15 +42,20 @@ public class StandBlock extends Block implements BlockEntityProvider {
             inventory.setStack(0, player.getStackInHand(hand).split(1));
         } else { // If inventory is full
             if (isCenter(world, blockPos) && player.getStackInHand(hand).getItem() == Items.LAPIS_LAZULI) {
-                ItemStack result = craft(blockPos, world);
+                Inventory south = (Inventory)world.getBlockEntity(blockPos.south(2));
+                Inventory west = (Inventory)world.getBlockEntity(blockPos.west(2));
+                Inventory north = (Inventory)world.getBlockEntity(blockPos.north(2));
+                Inventory east = (Inventory)world.getBlockEntity(blockPos.east(2));
+
+                ItemStack result = ItemStandRecipes.getResultIfRecipeExists(inventory.getStack(0), south.getStack(0), west.getStack(0), north.getStack(0), east.getStack(0));
                 if (!result.isEmpty()) {
                     inventory.setStack(0, result);
                     player.getStackInHand(hand).decrement(1);
 
-                    ((Inventory)world.getBlockEntity(blockPos.south().south())).removeStack(0);
-                    ((Inventory)world.getBlockEntity(blockPos.west().west())).removeStack(0);
-                    ((Inventory)world.getBlockEntity(blockPos.north().north())).removeStack(0);
-                    ((Inventory)world.getBlockEntity(blockPos.east().east())).removeStack(0);
+                    south.removeStack(0);
+                    west.removeStack(0);
+                    north.removeStack(0);
+                    east.removeStack(0);
 
                     if (world.isClient) {
                         world.playSound(player, blockPos, SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 0.6f, 1.0f);
@@ -86,22 +91,12 @@ public class StandBlock extends Block implements BlockEntityProvider {
     }
 
     private boolean isCenter(World world, BlockPos pos) {
-        boolean south = world.getBlockState(pos.south().south()).isOf(BlockRegistry.STAND);
-        boolean west = world.getBlockState(pos.west().west()).isOf(BlockRegistry.STAND);
-        boolean north = world.getBlockState(pos.north().north()).isOf(BlockRegistry.STAND);
-        boolean east = world.getBlockState(pos.east().east()).isOf(BlockRegistry.STAND);
+        boolean south = world.getBlockState(pos.south(2)).isOf(BlockRegistry.STAND);
+        boolean west = world.getBlockState(pos.west(2)).isOf(BlockRegistry.STAND);
+        boolean north = world.getBlockState(pos.north(2)).isOf(BlockRegistry.STAND);
+        boolean east = world.getBlockState(pos.east(2)).isOf(BlockRegistry.STAND);
 
         return south && west && north && east;
-    }
-
-    private ItemStack craft(BlockPos pos, World world) {
-        Item centerItem = ((Inventory)world.getBlockEntity(pos)).getStack(0).getItem();
-        ItemStack south = ((Inventory)world.getBlockEntity(pos.south().south())).getStack(0);
-        ItemStack west = ((Inventory)world.getBlockEntity(pos.west().west())).getStack(0);
-        ItemStack north = ((Inventory)world.getBlockEntity(pos.north().north())).getStack(0);
-        ItemStack east = ((Inventory)world.getBlockEntity(pos.east().east())).getStack(0);
-
-        return ItemStandRecipes.getResultIfRecipeExists(centerItem, south, west, north, east);
     }
 
     @Override
