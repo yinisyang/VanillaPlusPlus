@@ -1,9 +1,6 @@
 package vanillaplusplus;
 
 import net.minecraft.block.dispenser.DispenserBehavior;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.math.Direction;
 import vanillaplusplus.common.*;
 import net.fabricmc.api.ModInitializer;
 

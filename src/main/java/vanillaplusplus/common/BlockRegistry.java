@@ -1,12 +1,7 @@
 package vanillaplusplus.common;
 
 import net.fabricmc.fabric.api.tag.TagRegistry;
-import net.minecraft.entity.MovementType;
-import net.minecraft.entity.player.PlayerAbilities;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ScaffoldingItem;
-import net.minecraft.server.PlayerManager;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.tag.Tag;
 import vanillaplusplus.VanillaPlusPlusInitializer;
 import vanillaplusplus.blocks.*;
@@ -119,6 +114,7 @@ public class BlockRegistry {
         //createBlock("beacon_extender", BEACON_EXTENDER);
         createBlock("nether_star_block", NETHER_STAR_BLOCK, new NetherStarBlockItem(NETHER_STAR_BLOCK, new Item.Settings().group(VPP_ITEM_GROUP)));
         createBlock("stand", STAND);
+
     }
 
     private static void createBlock(String name, Block block) {
