@@ -13,8 +13,8 @@ public class ItemStandRecipes {
     public static ItemStack getResultIfRecipeExists(PlayerEntity player, ItemStack centerItem, ItemStack item1, ItemStack item2, ItemStack item3, ItemStack item4) {
         for (ItemStandRecipe recipe: RECIPES) {
             if (recipe.matchesInputs(centerItem, item1, item2, item3, item4)) {
-                if (player.totalExperience >= recipe.getExperienceUsed()) {
-                    player.addExperience(-1 * recipe.getExperienceUsed());
+                if (player.experienceLevel >= recipe.getLevelsUsed()) {
+                    player.addExperienceLevels(-recipe.getLevelsUsed());
                     return recipe.getOutput();
                 }
             }
@@ -97,7 +97,8 @@ public class ItemStandRecipes {
     private static final ItemStandRecipe PROTECTION_4 = create()
             .withIngredient(ItemRegistry.NETHER_STAR_INGOT)
             .withIngredient(Items.CRYING_OBSIDIAN, 2)
-            .withIngredient(PROTECTION_3);
+            .withIngredient(PROTECTION_3)
+            .withOutput(Enchantments.PROTECTION, 4);
 
     private static final ItemStandRecipe SHARPNESS = create()
             .withIngredient(Items.QUARTZ, 4)
@@ -126,7 +127,8 @@ public class ItemStandRecipes {
             .withOutput(Enchantments.SILK_TOUCH);
 
     private static final ItemStandRecipe UNBREAKING = create()
-            .withIngredient(Items.CHISELED_STONE_BRICKS, 4);
+            .withIngredient(Items.CHISELED_STONE_BRICKS, 4)
+            .withOutput(Enchantments.UNBREAKING);
     private static final ItemStandRecipe UNBREAKING_2 = create()
             .withIngredient(Items.OBSIDIAN, 3)
             .withIngredient(UNBREAKING)

@@ -1,5 +1,6 @@
 package vanillaplusplus.util;
 
+import net.minecraft.block.EnchantingTableBlock;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
 import net.minecraft.item.EnchantedBookItem;
@@ -8,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.screen.EnchantmentScreenHandler;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -20,12 +22,12 @@ public class ItemStandRecipe {
     private ItemStack centerIngredient;
     private Map<Item, Integer> ingredients;
     private EnchantmentLevelEntry enchantedBookIngredientData;
-    private int baseExperienceUsed;
+    private int baseLevelsUsed;
 
     public ItemStandRecipe() {
         this.ingredients = new HashMap<>();
         this.centerIngredient = new ItemStack(Items.BOOK); // Have book be default center item
-        this.baseExperienceUsed = 20;
+        this.baseLevelsUsed = 1;
     }
 
     ItemStandRecipe withIngredient(Item item, int amount) {
@@ -80,8 +82,8 @@ public class ItemStandRecipe {
         return withOutput(enchantment, 1);
     }
 
-    ItemStandRecipe withBaseExperienceUsed(int experience) {
-        this.baseExperienceUsed = experience;
+    ItemStandRecipe withBaseExperienceUsed(int levels) {
+        this.baseLevelsUsed = levels;
         return this;
     }
 
@@ -109,8 +111,11 @@ public class ItemStandRecipe {
         return this.output;
     }
 
-    public int getExperienceUsed() {
-        return this.baseExperienceUsed * this.enchantedBookIngredientData.level;
+    public int getLevelsUsed() {
+        if (this.enchantedBookIngredientData != null) {
+            return this.baseLevelsUsed * this.enchantedBookIngredientData.level;
+        }
+        return 0;
     }
 
     private Map<Item, Integer> convertToMap(ItemStack[] convertInputs) {
