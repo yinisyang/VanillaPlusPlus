@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "bottom=false": {
       "model": "vanilla_plus_plus:block/steel_scaffold"
+    },
+    "bottom=true": {
+      "model": "vanilla_plus_plus:block/steel_scaffold_unstable"
     }
   }
 }
