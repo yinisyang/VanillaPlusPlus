@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import vanillaplusplus.items.WitherBoneMeal;
 
 import java.util.Random;
 
@@ -31,29 +32,8 @@ public class VanillaPlusPlusInitializer implements ModInitializer {
         
         ItemDispenserBehavior witherBoneMealBehavior = new ItemDispenserBehavior() {
             protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-                BlockPos blockPos = pointer.getBlockPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
-                World world = pointer.getWorld();
 
-                if (world.getBlockState(blockPos).isOf(Blocks.NETHER_WART)) {
-
-                    BlockState blockState = pointer.getWorld().getBlockState(blockPos);
-                    int age = blockState.get(NetherWartBlock.AGE);
-                    int increment = new Random().nextInt(2) + 1;
-
-                    if (age + increment > 3) {
-                        increment = 3 - age;
-                    }
-
-                    if (age < 3) {
-                        if (!world.isClient()) {
-                            blockState = blockState.with(NetherWartBlock.AGE, age + increment);
-                            world.setBlockState(blockPos, blockState, 2);
-                        } else {
-                            world.addParticle(ParticleTypes.HAPPY_VILLAGER, (double)blockPos.getX() + 0.5D, (double)blockPos.getY() + 0.5D, (double)blockPos.getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
-                        }
-                        stack.decrement(1);
-                    }
-                }
+                WitherBoneMeal.fertilize(pointer.getWorld(), pointer.getBlockPos().offset(pointer.getBlockState().get(DispenserBlock.FACING)), stack);
                 return stack;
             }
         };

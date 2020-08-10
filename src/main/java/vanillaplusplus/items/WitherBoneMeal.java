@@ -4,6 +4,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.NetherWartBlock;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.ActionResult;
@@ -21,16 +22,18 @@ public class WitherBoneMeal extends Item {
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        World world = context.getWorld();
-        BlockState centerBlockState = world.getBlockState(context.getBlockPos());
+        return fertilize(context.getWorld(), context.getBlockPos(), context.getStack());
+    }
 
+    public static ActionResult fertilize(World world, BlockPos centerPos, ItemStack stack) {
+        BlockState centerBlockState = world.getBlockState(centerPos);
         if (centerBlockState.getBlock().is(Blocks.NETHER_WART)) {
             // Try to apply the growth affect in a 3x3 area center on the
             // used block
             boolean didGrow = false;
             for (int i  = -1; i <= 1; i++) {
                 for (int j = -1; j <= 1; j++) {
-                    BlockPos pos = context.getBlockPos().add(new Vec3i(i, 0, j));
+                    BlockPos pos = centerPos.add(new Vec3i(i, 0, j));
                     BlockState blockState = world.getBlockState(pos);
 
                     if (blockState.getBlock().is(Blocks.NETHER_WART)) {
@@ -56,7 +59,7 @@ public class WitherBoneMeal extends Item {
             }
 
             if (didGrow) {
-                context.getStack().decrement(1);
+                stack.decrement(1);
                 return ActionResult.SUCCESS;
             }
         }
