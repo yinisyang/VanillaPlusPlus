@@ -75,7 +75,7 @@ public class ItemStandRecipes {
 
     private static final ItemStandRecipe INFINITY = create()
             .withIngredient(ItemRegistry.NETHER_STAR_INGOT)
-            .withIngredient(Items.ARROW)
+            .withIngredient(Items.ARROW, 3)
             .withOutput(Enchantments.INFINITY);
 
     private static final ItemStandRecipe MENDING = create()

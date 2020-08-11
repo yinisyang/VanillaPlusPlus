@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "vanilla_plus_plus:steel_block"
+    "vanilla_plus_plus:steel_block",
+    "vanilla_plus_plus:nether_star_block"
   ]
 }
