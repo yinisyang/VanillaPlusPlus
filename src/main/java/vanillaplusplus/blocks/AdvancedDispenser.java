@@ -4,6 +4,8 @@ import net.minecraft.block.*;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.*;
+import vanillaplusplus.common.BlockRegistry;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,6 +63,7 @@ public class AdvancedDispenser extends DispenserBlock {
 
     static {
         PLACEABLE_BLOCKS.add(Blocks.COBBLESTONE);
+        PLACEABLE_BLOCKS.add(Blocks.MOSSY_COBBLESTONE);
         PLACEABLE_BLOCKS.add(Blocks.STONE);
         PLACEABLE_BLOCKS.add(Blocks.ACACIA_LOG);
         PLACEABLE_BLOCKS.add(Blocks.BIRCH_LOG);
@@ -74,6 +77,12 @@ public class AdvancedDispenser extends DispenserBlock {
         PLACEABLE_BLOCKS.add(Blocks.JUNGLE_WOOD);
         PLACEABLE_BLOCKS.add(Blocks.OAK_WOOD);
         PLACEABLE_BLOCKS.add(Blocks.SPRUCE_WOOD);
+        PLACEABLE_BLOCKS.add(Blocks.ACACIA_PLANKS);
+        PLACEABLE_BLOCKS.add(Blocks.BIRCH_PLANKS);
+        PLACEABLE_BLOCKS.add(Blocks.DARK_OAK_PLANKS);
+        PLACEABLE_BLOCKS.add(Blocks.JUNGLE_PLANKS);
+        PLACEABLE_BLOCKS.add(Blocks.OAK_PLANKS);
+        PLACEABLE_BLOCKS.add(Blocks.SPRUCE_PLANKS);
         PLACEABLE_BLOCKS.add(Blocks.COAL_ORE);
         PLACEABLE_BLOCKS.add(Blocks.DIAMOND_ORE);
         PLACEABLE_BLOCKS.add(Blocks.EMERALD_ORE);
@@ -83,8 +92,13 @@ public class AdvancedDispenser extends DispenserBlock {
         PLACEABLE_BLOCKS.add(Blocks.REDSTONE_ORE);
         PLACEABLE_BLOCKS.add(Blocks.NETHER_GOLD_ORE);
         PLACEABLE_BLOCKS.add(Blocks.NETHER_QUARTZ_ORE);
+        PLACEABLE_BLOCKS.add(BlockRegistry.SULFUR_ORE_BLOCK);
+        PLACEABLE_BLOCKS.add(BlockRegistry.SALTPETER_ORE_BLOCK);
         PLACEABLE_BLOCKS.add(Blocks.NETHERRACK);
+        PLACEABLE_BLOCKS.add(Blocks.SOUL_SAND);
+        PLACEABLE_BLOCKS.add(Blocks.SOUL_SOIL);
         PLACEABLE_BLOCKS.add(Blocks.SAND);
+        PLACEABLE_BLOCKS.add(Blocks.RED_SAND);
         PLACEABLE_BLOCKS.add(Blocks.GRAVEL);
         PLACEABLE_BLOCKS.add(Blocks.DIRT);
         PLACEABLE_BLOCKS.add(Blocks.COARSE_DIRT);
@@ -98,7 +112,22 @@ public class AdvancedDispenser extends DispenserBlock {
         PLACEABLE_BLOCKS.add(Blocks.JUNGLE_LEAVES);
         PLACEABLE_BLOCKS.add(Blocks.OAK_LEAVES);
         PLACEABLE_BLOCKS.add(Blocks.SPRUCE_LEAVES);
-        PLACEABLE_BLOCKS.add(Blocks.PISTON);
-        PLACEABLE_BLOCKS.add(Blocks.STICKY_PISTON);
+        PLACEABLE_BLOCKS.add(Blocks.BLACK_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.BLUE_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.CYAN_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.BROWN_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.GRAY_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.GREEN_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.LIGHT_BLUE_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.LIGHT_GRAY_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.LIME_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.MAGENTA_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.ORANGE_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.PINK_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.PURPLE_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.RED_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.WHITE_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.YELLOW_CONCRETE_POWDER);
+        PLACEABLE_BLOCKS.add(Blocks.COBWEB);
     }
 }
