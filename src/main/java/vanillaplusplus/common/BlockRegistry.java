@@ -1,7 +1,10 @@
 package vanillaplusplus.common;
 
 import net.fabricmc.fabric.api.tag.TagRegistry;
+import net.minecraft.block.entity.FurnaceBlockEntity;
+import net.minecraft.client.gui.screen.ingame.FurnaceScreen;
 import net.minecraft.item.ScaffoldingItem;
+import net.minecraft.screen.FurnaceScreenHandler;
 import net.minecraft.tag.Tag;
 import vanillaplusplus.VanillaPlusPlusInitializer;
 import vanillaplusplus.blocks.*;
@@ -72,6 +75,8 @@ public class BlockRegistry {
     // Custom chests
     public static final Block SPRUCE_CHEST = new CustomChest(FabricBlockSettings.of(Material.WOOD).strength(2.5f).sounds(BlockSoundGroup.WOOD));
 
+    public static final Block GRINDER = new GrinderBlock(FabricBlockSettings.copyOf(Blocks.FURNACE));
+
     public static void register() {
         createBlock("sulfur_ore", SULFUR_ORE_BLOCK);
         createBlock("saltpeter_ore", SALTPETER_ORE_BLOCK);
@@ -114,7 +119,7 @@ public class BlockRegistry {
         //createBlock("beacon_extender", BEACON_EXTENDER);
         createBlock("nether_star_block", NETHER_STAR_BLOCK, new NetherStarBlockItem(NETHER_STAR_BLOCK, new Item.Settings().group(VPP_ITEM_GROUP)));
         createBlock("stand", STAND);
-
+        createBlock("grinder", GRINDER);
     }
 
     private static void createBlock(String name, Block block) {
