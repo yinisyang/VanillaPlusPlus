@@ -29,7 +29,7 @@ It is called Vanilla++ because my intention is to add things that I believe fit 
     GGG<br/>
     GNG<br/>
     GRG<br/>
-    G = Gold Ingot, N = Nether Star Ingot, R = redstone
+    G = Gold Ingot, N = Nether Star Shard, R = redstone
 
 * **Sulfur Ore** - Spawns in Nether Waste biomes. Drops sulfur
 
