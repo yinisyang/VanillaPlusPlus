@@ -1,0 +1,50 @@
+{
+    "config": {
+        "feature": {
+            "config": {
+                "feature": {
+                    "config": {
+                        "feature": {
+                            "config": {
+                                "rock_count": 4,
+                                "hole_count": 1,
+                                "valid_blocks": [
+                                    "minecraft:netherrack"
+                                ],
+                                "state": {
+                                    "Properties": {
+                                        "falling": "true"
+                                    },
+                                    "Name": "vanilla_plus_plus:molten_iron"
+                                },
+                                "requires_block_below": true
+                            },
+                            "type": "vanilla_plus_plus:spring_iron"
+                        },
+                        "decorator": {
+                            "config": {
+                                "bottom_offset": 4,
+                                "top_offset": 8,
+                                "maximum": 128
+                            },
+                            "type": "minecraft:range_biased"
+                        }
+                    },
+                    "type": "minecraft:decorated"
+                },
+                "decorator": {
+                    "config": {},
+                    "type": "minecraft:square"
+                }
+            },
+            "type": "minecraft:decorated"
+        },
+        "decorator": {
+            "config": {
+                "count": 10
+            },
+            "type": "minecraft:count"
+        }
+    },
+    "type": "minecraft:decorated"
+}

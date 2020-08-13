@@ -19,8 +19,6 @@ import java.util.Random;
 
 public abstract class CoolableFluid extends FlowableFluid {
 
-    // TODO: Make coolable fluid cool if it was covered by water
-
     public abstract Block getCooledBlock();
 
     @Override
@@ -53,7 +51,7 @@ public abstract class CoolableFluid extends FlowableFluid {
     @Override
     protected void beforeBreakingBlock(WorldAccess world, BlockPos pos, BlockState state) {
         final BlockEntity blockEntity = state.getBlock().hasBlockEntity() ? world.getBlockEntity(pos): null;
-        Block.dropStacks(state, world.getWorld(), pos, blockEntity);
+        Block.dropStacks(state, world, pos, blockEntity);
     }
 
     @Override
