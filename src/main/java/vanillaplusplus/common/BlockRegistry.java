@@ -29,7 +29,7 @@ public class BlockRegistry {
     public static final Block SALTPETER_ORE_BLOCK = new SaltpeterOreBlock(FabricBlockSettings.of(Material.STONE).hardness(4.0f));
     public static final Block ADVANCED_DISPENSER_BLOCK = new AdvancedDispenser(FabricBlockSettings.of(Material.STONE).hardness(4.0f).requiresTool());
     public static final Block STEEL_BLOCK = new SteelBlock(FabricBlockSettings.of(Material.METAL).hardness(7.0f).requiresTool());
-    public static final Block STEEL_SCAFFOLD = new SteelScaffold(FabricBlockSettings.of(Material.SUPPORTED).nonOpaque().noCollision().dynamicBounds());
+    public static final Block STEEL_SCAFFOLD = new SteelScaffold(FabricBlockSettings.of(Material.SUPPORTED).nonOpaque().noCollision().dynamicBounds().allowsSpawning((state, world, pos, type) -> false));
     public static final Block BEACON_EXTENDER = new BeaconExtender(FabricBlockSettings.of(Material.METAL).hardness(5.0f).requiresTool());
     public static final Block NETHER_STAR_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f).requiresTool());
     public static final Block STAND = new StandBlock(FabricBlockSettings.copyOf(Blocks.ANVIL));
