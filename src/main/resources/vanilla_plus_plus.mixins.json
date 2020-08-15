@@ -7,7 +7,8 @@
     "EnchantmentScreenHandlerMixin",
     "LivingEntityMixin",
     "SwordItemMixin",
-    "FallingBlockMixin"
+    "FallingBlockMixin",
+    "SaplingBlockMixin"
   ],
   "client": [
     "ItemEntityMixin",

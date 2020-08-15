@@ -19,6 +19,8 @@ import vanillaplusplus.items.WitherBoneMeal;
  * https://www.reddit.com/r/minecraftsuggestions/comments/hsyacf/when_leftclicking_on_a_nether_portal_tnt_campfire/
  * https://www.reddit.com/r/minecraftsuggestions/comments/i6ink9/idea_for_bamboo_being_used_as_a_wood_block/
  * https://www.reddit.com/r/minecraftsuggestions/comments/hux92k/gravity_blocks_stick_to_honey_blocks/
+ * https://www.reddit.com/r/minecraftsuggestions/comments/i5go6i/scaffolding_should_be_spawn_proof/
+ * https://www.reddit.com/r/minecraftsuggestions/comments/g2jfyd/saplings_planted_on_sand_should_turn_into_dead/
  */
 
 public class VanillaPlusPlusInitializer implements ModInitializer {
