@@ -5,7 +5,8 @@
   "mixins": [
     "EnchantmentMixin",
     "EnchantmentScreenHandlerMixin",
-    "LivingEntityMixin"
+    "LivingEntityMixin",
+    "SwordItemMixin"
   ],
   "client": [
     "ItemEntityMixin",
