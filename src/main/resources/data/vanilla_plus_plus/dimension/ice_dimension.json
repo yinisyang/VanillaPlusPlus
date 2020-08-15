@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:overworld",
+    "generator": {
+        "biome_source": {
+            "type": "minecraft:fixed",
+            "biome": "vanilla_plus_plus:arctic_plains"
+        },
+        "seed": 0,
+        "settings": "vanilla_plus_plus:ice_dimension_noise_settings",
+        "type": "minecraft:noise"
+    }
+}

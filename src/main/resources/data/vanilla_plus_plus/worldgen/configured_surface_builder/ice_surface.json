@@ -1,0 +1,17 @@
+{
+    "config": {
+        "top_material": {
+            "Properties": {
+                "snowy": "false"
+            },
+            "Name": "minecraft:snow_block"
+        },
+        "under_material": {
+            "Name": "minecraft:ice"
+        },
+        "underwater_material": {
+            "Name": "minecraft:diorite"
+        }
+    },
+    "type": "minecraft:default"
+}

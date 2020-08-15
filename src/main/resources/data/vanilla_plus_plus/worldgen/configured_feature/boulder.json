@@ -18,6 +18,18 @@
                             "data": {
                                 "Name": "minecraft:cobblestone"
                             }
+                        },
+                        {
+                            "weight": 3,
+                            "data": {
+                                "Name": "minecraft:coal_ore"
+                            }
+                        },
+                        {
+                            "weight": 1,
+                            "data": {
+                                "Name": "minecraft:iron_ore"
+                            }
                         }
                     ]
                 }

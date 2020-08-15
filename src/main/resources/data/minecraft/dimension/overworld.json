@@ -2,8 +2,9 @@
     "type": "minecraft:overworld",
     "generator": {
         "biome_source": {
-            "type": "minecraft:fixed",
-            "biome": "vanilla_plus_plus:test_biome"
+            "seed": 0,
+            "large_biomes": false,
+            "type": "minecraft:vanilla_layered"
         },
         "seed": 0,
         "settings": "minecraft:overworld",

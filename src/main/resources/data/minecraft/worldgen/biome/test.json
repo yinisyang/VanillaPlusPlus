@@ -12,7 +12,7 @@
         "water_color": 4159204,
         "water_fog_color": 329011
     },
-    "surface_builder": "minecraft:grass",
+    "surface_builder": "vanilla_plus_plus:ice_surface",
     "carvers": {
         "air": [
             "minecraft:cave",
@@ -23,16 +23,14 @@
         [
         ],
         [
-            "minecraft:lake_water",
-            "minecraft:lake_lava",
+            "minecraft:lake_water"
         ],
         [
         ],
         [
-            "minecraft:monster_room",
+            "minecraft:monster_room"
         ],
         [
-            "vanilla_plus_plus:boulder"
         ],
         [
         ],
@@ -56,29 +54,13 @@
         [
         ],
         [
-            "minecraft:patch_tall_grass_2",
-            "minecraft:plain_vegetation",
-            "minecraft:flower_plain_decorated",
-            "minecraft:patch_grass_plain",
-            "minecraft:brown_mushroom_normal",
-            "minecraft:red_mushroom_normal",
-            "minecraft:patch_sugar_cane",
-            "minecraft:patch_pumpkin",
-            "minecraft:spring_water",
-            "minecraft:spring_lava",
-            "vanilla_plus_plus:spring_iron",
-            "vanilla_plus_plus:bone_tree"
         ],
         [
             "minecraft:freeze_top_layer"
         ]
     ],
     "starts": [
-        "minecraft:village_plains",
-        "minecraft:pillager_outpost",
-        "minecraft:mineshaft",
-        "minecraft:stronghold",
-        "minecraft:ruined_portal"
+        "minecraft:mineshaft"
     ],
     "spawners": {
         "monster": [
@@ -183,9 +165,9 @@
     },
     "spawn_costs": {},
     "player_spawn_friendly": true,
-    "precipitation": "rain",
-    "temperature": 0.8,
-    "downfall": 0.4,
+    "precipitation": "snow",
+    "temperature": 0.3,
+    "downfall": 0.5,
     "category": "plains",
-    "depth": 0.125
+    "depth": 0.25
 }
