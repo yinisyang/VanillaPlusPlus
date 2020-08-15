@@ -14,6 +14,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import vanillaplusplus.items.WitherBoneMeal;
 
+/**
+ * Suggestion List:
+ * https://www.reddit.com/r/minecraftsuggestions/comments/hsyacf/when_leftclicking_on_a_nether_portal_tnt_campfire/
+ * https://www.reddit.com/r/minecraftsuggestions/comments/i6ink9/idea_for_bamboo_being_used_as_a_wood_block/
+ */
+
 public class VanillaPlusPlusInitializer implements ModInitializer {
 
     public static final String MOD_ID = "vanilla_plus_plus";
