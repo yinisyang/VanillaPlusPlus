@@ -39,7 +39,7 @@ public class CustomBiomeSource extends BiomeSource {
     public CustomBiomeSource(long seed, boolean legacyBiomeInitLayer, boolean largeBiomes, Registry<Biome> biomeRegistry) {
         super(BIOMES.stream().map((registryKey) -> {
             return () -> {
-                return (Biome)biomeRegistry.method_31140(registryKey);
+                return (Biome)biomeRegistry.getOrThrow(registryKey);
             };
         }));
         this.seed = seed;
