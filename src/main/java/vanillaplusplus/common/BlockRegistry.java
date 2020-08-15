@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.item.ScaffoldingItem;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.math.Direction;
-import vanillaplusplus.VanillaPlusPlusInitializer;
 import vanillaplusplus.blocks.*;
 import vanillaplusplus.blocks.chests.CustomChest;
 import vanillaplusplus.blocks.meltable.SteelBlock;
@@ -23,7 +22,8 @@ import static vanillaplusplus.VanillaPlusPlusInitializer.VPP_ITEM_GROUP;
 public class BlockRegistry {
 
     // Tags
-    public static Tag<Block> MELTABLE_BLOCK_TAG = TagRegistry.block(new Identifier(VanillaPlusPlusInitializer.MOD_ID, "meltable"));
+    public static Tag<Block> MELTABLE_BLOCK_TAG = TagRegistry.block(new Identifier(MOD_ID, "meltable"));
+    public static Tag<Block> STICKY_BLOCK_TAG = TagRegistry.block(new Identifier(MOD_ID, "sticky"));
 
     public static final Block SULFUR_ORE_BLOCK = new SulfurOreBlock(FabricBlockSettings.of(Material.STONE).hardness(3.0f));
     public static final Block SALTPETER_ORE_BLOCK = new SaltpeterOreBlock(FabricBlockSettings.of(Material.STONE).hardness(4.0f));
