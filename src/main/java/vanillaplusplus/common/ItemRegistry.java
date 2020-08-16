@@ -26,6 +26,7 @@ public class ItemRegistry {
     public static final Item DYNAMITE = new DynamiteItem(new Item.Settings().group(VPP_ITEM_GROUP));
     public static final Item BEACON_LINKER = new BeaconLinker(new Item.Settings().group(VPP_ITEM_GROUP));
     public static final Item NETHER_STAR_INGOT = new NetherStarIngotItem(new Item.Settings().group(VPP_ITEM_GROUP));
+    public static final Item MAGIC_DUST = new Item(new Item.Settings().group(VPP_ITEM_GROUP));
 
     // Tools
     public static final ToolItem STEEL_SHOVEL = new ShovelItem(CustomToolMaterial.STEEL, 1.5f, -3.0f, new Item.Settings().group(VPP_ITEM_GROUP));
@@ -53,6 +54,7 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "dynamite"), DYNAMITE);
         //Registry.register(Registry.ITEM, new Identifier(MOD_ID, "beacon_linker"), BEACON_LINKER);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "nether_star_ingot"), NETHER_STAR_INGOT);
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "magic_dust"), MAGIC_DUST);
 
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_shovel"), STEEL_SHOVEL);
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "steel_sword"), STEEL_SWORD);
