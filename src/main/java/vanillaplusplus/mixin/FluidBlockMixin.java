@@ -5,14 +5,13 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidBlock;
 import net.minecraft.fluid.FlowableFluid;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldAccess;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vanillaplusplus.common.FluidRegistry;
 import vanillaplusplus.fluids.CoolableFluid;
 
@@ -20,43 +19,16 @@ import vanillaplusplus.fluids.CoolableFluid;
 public abstract class FluidBlockMixin {
 
     @Shadow
+    private
     FlowableFluid fluid;
 
-    @Shadow
-    abstract void playExtinguishSound(WorldAccess world, BlockPos pos);
-
-    private boolean receiveNeighborFluids(World world, BlockPos pos, BlockState state) {
-        if (this.fluid.isIn(FluidTags.LAVA)) {
-            boolean bl = world.getBlockState(pos.down()).isOf(Blocks.SOUL_SOIL);
-            Direction[] var5 = Direction.values();
-            int var6 = var5.length;
-
-            for(int var7 = 0; var7 < var6; ++var7) {
-                Direction direction = var5[var7];
-                if (direction != Direction.DOWN) {
-                    BlockPos blockPos = pos.offset(direction);
-                    if (world.getFluidState(blockPos).isIn(FluidTags.WATER)) {
-                        Block block;
-                        if (this.fluid.isIn(FluidRegistry.MOLTEN_METAL_TAG)) {
-                            CoolableFluid fluid = (CoolableFluid)world.getFluidState(pos).getFluid();
-                            block = world.getFluidState(pos).isStill() ? fluid.getCooledBlock() : Blocks.COBBLESTONE;
-                        } else {
-                            block = world.getFluidState(pos).isStill() ? Blocks.OBSIDIAN : Blocks.COBBLESTONE;
-                        }
-                        world.setBlockState(pos, block.getDefaultState());
-                        this.playExtinguishSound(world, pos);
-                        return false;
-                    }
-
-                    if (bl && world.getBlockState(blockPos).isOf(Blocks.BLUE_ICE)) {
-                        world.setBlockState(pos, Blocks.BASALT.getDefaultState());
-                        this.playExtinguishSound(world, pos);
-                        return false;
-                    }
-                }
-            }
+    @Inject(method="receiveNeighborFluids", at=@At(value = "INVOKE", target = "Lnet/minecraft/world/World;setBlockState(Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/block/BlockState;)Z", ordinal = 0), cancellable = true)
+    private void onReceiveNeighborFluids(World world, BlockPos pos, BlockState state, CallbackInfoReturnable<Boolean> cbi) {
+        if (this.fluid.isIn(FluidRegistry.MOLTEN_METAL_TAG)) {
+            CoolableFluid fluid = (CoolableFluid)world.getFluidState(pos).getFluid();
+            Block block = world.getFluidState(pos).isStill() ? fluid.getCooledBlock() : Blocks.COBBLESTONE;
+            world.setBlockState(pos, block.getDefaultState());
+            cbi.setReturnValue(false);
         }
-
-        return true;
     }
 }
