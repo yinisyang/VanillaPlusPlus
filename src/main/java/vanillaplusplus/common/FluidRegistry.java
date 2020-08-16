@@ -2,8 +2,8 @@ package vanillaplusplus.common;
 
 import vanillaplusplus.fluids.GoldFluid;
 import vanillaplusplus.fluids.IronFluid;
+import vanillaplusplus.fluids.MilkFluid;
 import vanillaplusplus.fluids.SteelFluid;
-import vanillaplusplus.VanillaPlusPlusInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandler;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
@@ -37,7 +37,8 @@ import static vanillaplusplus.VanillaPlusPlusInitializer.MOD_ID;
 public class FluidRegistry {
 
     // Tags
-    public static Tag<Fluid> MOLTEN_METAL_TAG = TagRegistry.fluid(new Identifier(VanillaPlusPlusInitializer.MOD_ID, "molten_metal"));
+    public static Tag<Fluid> MOLTEN_METAL_TAG = TagRegistry.fluid(new Identifier(MOD_ID, "molten_metal"));
+    public static Tag<Fluid> CLEAR_STATUS_EFFECTS = TagRegistry.fluid(new Identifier(MOD_ID, "clear_status_effects"));
 
     // Fluids
     public static FlowableFluid STILL_IRON = new IronFluid.Still();
@@ -46,24 +47,28 @@ public class FluidRegistry {
     public static FlowableFluid FLOWING_STEEL = new SteelFluid.Flowing();
     public static FlowableFluid STILL_GOLD = new GoldFluid.Still();
     public static FlowableFluid FLOWING_GOLD = new GoldFluid.Flowing();
+    public static FlowableFluid STILL_MILK = new MilkFluid.Still();
+    public static FlowableFluid FLOWING_MILK = new MilkFluid.Flowing();
 
     // Fluid Blocks
     public static final Block MOLTEN_IRON_BLOCK = new FluidBlock(STILL_IRON, FabricBlockSettings.copy(Blocks.LAVA).noCollision().lightLevel((state) -> 15).ticksRandomly()){};
     public static final Block MOLTEN_STEEL_BLOCK = new FluidBlock(STILL_STEEL, FabricBlockSettings.copy(Blocks.LAVA).noCollision().lightLevel((state) -> 15).ticksRandomly()){};
     public static final Block MOLTEN_GOLD_BLOCK = new FluidBlock(STILL_GOLD, FabricBlockSettings.copy(Blocks.LAVA).noCollision().lightLevel((state) -> 15).ticksRandomly()){};
+    public static final Block MILK_BLOCK = new FluidBlock(STILL_MILK, FabricBlockSettings.copy(Blocks.WATER).noCollision()){};
 
     public static void register() {
-        createFluid("iron", STILL_IRON, FLOWING_IRON, MOLTEN_IRON_BLOCK, new Identifier("minecraft", "lava"), 0xc22e09);
-        createFluid("steel", STILL_STEEL, FLOWING_STEEL, MOLTEN_STEEL_BLOCK, new Identifier("minecraft", "lava"), 0x8f0000);
-        createFluid("gold", STILL_GOLD, FLOWING_GOLD, MOLTEN_GOLD_BLOCK, new Identifier("vanilla_plus_plus", "gold"), 0xf8ef66);
+        createFluid("molten_iron", STILL_IRON, FLOWING_IRON, MOLTEN_IRON_BLOCK, new Identifier("minecraft", "lava"), 0xc22e09);
+        createFluid("molten_steel", STILL_STEEL, FLOWING_STEEL, MOLTEN_STEEL_BLOCK, new Identifier("minecraft", "lava"), 0x8f0000);
+        createFluid("molten_gold", STILL_GOLD, FLOWING_GOLD, MOLTEN_GOLD_BLOCK, new Identifier("vanilla_plus_plus", "gold"), 0xf8ef66);
+        createFluid("milk", STILL_MILK, FLOWING_MILK, MILK_BLOCK, new Identifier("vanilla_plus_plus", "milk"), 0xffffff);
     }
 
     public static void createFluid(String name, FlowableFluid still, FlowableFluid flowing, Block fluidBlock, Identifier baseFluidTexture, int color) {
         // Register fluids
-        Registry.register(Registry.FLUID, new Identifier(MOD_ID, "molten_" + name), still);
-        Registry.register(Registry.FLUID, new Identifier(MOD_ID, "flowing_molten_" + name), flowing);
+        Registry.register(Registry.FLUID, new Identifier(MOD_ID, name), still);
+        Registry.register(Registry.FLUID, new Identifier(MOD_ID, "flowing_" + name), flowing);
         // Register fluid block
-        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "molten_" + name + "_block"), fluidBlock);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, name + "_block"), fluidBlock);
         // Setup fluid rendering
         setupFluidRendering(still, flowing, baseFluidTexture, color);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), still, flowing);
