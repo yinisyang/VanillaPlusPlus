@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "vanilla_plus_plus:stand"
+          "name": "vanilla_plus_plus:item_stand"
         }
       ],
       "conditions": [

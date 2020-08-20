@@ -19,8 +19,8 @@ import net.minecraft.world.World;
 
 import java.util.Iterator;
 
-public class EnchantedPumpkin extends CarvedPumpkinBlock {
-    public EnchantedPumpkin(Settings settings) {
+public class EnchantedPumpkinBlock extends CarvedPumpkinBlock {
+    public EnchantedPumpkinBlock(Settings settings) {
         super(settings);
     }
 }

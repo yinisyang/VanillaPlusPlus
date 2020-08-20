@@ -23,7 +23,7 @@ import vanillaplusplus.common.BlockRegistry;
 import java.util.Iterator;
 import java.util.Random;
 
-public class SteelScaffold extends Block {
+public class SteelScaffoldBlock extends Block {
     private static final VoxelShape NORMAL_OUTLINE_SHAPE;
     private static final VoxelShape BOTTOM_OUTLINE_SHAPE;
     private static final VoxelShape COLLISION_SHAPE = Block.createCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
@@ -32,7 +32,7 @@ public class SteelScaffold extends Block {
     public static final BooleanProperty WATERLOGGED;
     public static final BooleanProperty BOTTOM;
 
-    public SteelScaffold(Settings settings) {
+    public SteelScaffoldBlock(Settings settings) {
         super(settings);
         this.setDefaultState((((this.stateManager.getDefaultState()).with(DISTANCE, 20)).with(WATERLOGGED, false)).with(BOTTOM, false));
     }

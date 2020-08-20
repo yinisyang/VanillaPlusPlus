@@ -6,9 +6,9 @@ import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.world.BlockView;
 
-public class BeaconExtender extends Block implements BlockEntityProvider {
+public class BeaconExtenderBlock extends Block implements BlockEntityProvider {
 
-    public BeaconExtender(Settings settings) {
+    public BeaconExtenderBlock(Settings settings) {
         super(settings);
     }
 

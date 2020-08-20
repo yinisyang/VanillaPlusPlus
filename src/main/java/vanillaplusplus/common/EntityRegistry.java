@@ -14,7 +14,7 @@ import static vanillaplusplus.VanillaPlusPlusInitializer.MOD_ID;
 public class EntityRegistry {
 
     public static BlockEntityType<BeaconExtenderEntity> BEACON_EXTENDER_ENTITY = BlockEntityType.Builder.create(BeaconExtenderEntity::new, BlockRegistry.BEACON_EXTENDER).build(null);
-    public static BlockEntityType<StandBlockEntity> STAND_BLOCK_ENTITY = BlockEntityType.Builder.create(StandBlockEntity::new, BlockRegistry.STAND).build(null);
+    public static BlockEntityType<StandBlockEntity> STAND_BLOCK_ENTITY = BlockEntityType.Builder.create(StandBlockEntity::new, BlockRegistry.ITEM_STAND).build(null);
     public static BlockEntityType<InfusionStandBlockEntity> INFUSION_STAND_BLOCK_ENTITY = BlockEntityType.Builder.create(InfusionStandBlockEntity::new, BlockRegistry.INFUSION_STAND).build(null);
     public static EntityType LIT_DYNAMITE_ENTITY = FabricEntityTypeBuilder.create(SpawnGroup.MISC, LitDynamiteEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build();
 

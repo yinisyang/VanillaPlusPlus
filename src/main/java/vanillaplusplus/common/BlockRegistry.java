@@ -27,16 +27,16 @@ public class BlockRegistry {
 
     public static final Block SULFUR_ORE_BLOCK = new SulfurOreBlock(FabricBlockSettings.of(Material.STONE).hardness(3.0f));
     public static final Block SALTPETER_ORE_BLOCK = new SaltpeterOreBlock(FabricBlockSettings.of(Material.STONE).hardness(4.0f));
-    public static final Block ADVANCED_DISPENSER_BLOCK = new AdvancedDispenser(FabricBlockSettings.of(Material.STONE).hardness(4.0f).requiresTool());
+    public static final Block ADVANCED_DISPENSER_BLOCK = new AdvancedDispenserBlock(FabricBlockSettings.of(Material.STONE).hardness(4.0f).requiresTool());
     public static final Block STEEL_BLOCK = new SteelBlock(FabricBlockSettings.of(Material.METAL).hardness(7.0f).requiresTool());
-    public static final Block STEEL_SCAFFOLD = new SteelScaffold(FabricBlockSettings.of(Material.SUPPORTED).nonOpaque().noCollision().dynamicBounds().allowsSpawning((state, world, pos, type) -> false));
-    public static final Block BEACON_EXTENDER = new BeaconExtender(FabricBlockSettings.of(Material.METAL).hardness(5.0f).requiresTool());
+    public static final Block STEEL_SCAFFOLD = new SteelScaffoldBlock(FabricBlockSettings.of(Material.SUPPORTED).nonOpaque().noCollision().dynamicBounds().allowsSpawning((state, world, pos, type) -> false));
+    public static final Block BEACON_EXTENDER = new BeaconExtenderBlock(FabricBlockSettings.of(Material.METAL).hardness(5.0f).requiresTool());
     public static final Block NETHER_STAR_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).hardness(4.0f).requiresTool());
-    public static final Block STAND = new StandBlock(FabricBlockSettings.copyOf(Blocks.ANVIL));
+    public static final Block ITEM_STAND = new StandBlock(FabricBlockSettings.copyOf(Blocks.ANVIL));
     public static final Block INFUSION_STAND = new InfusionStandBlock(FabricBlockSettings.copyOf(Blocks.ANVIL));
     public static final Block BURNED_LOG = new PillarBlock(AbstractBlock.Settings.of(Material.WOOD, (blockState) -> blockState.get(PillarBlock.AXIS) == Direction.Axis.Y ? MaterialColor.WOOD : MaterialColor.SPRUCE).strength(2.0F).sounds(BlockSoundGroup.WOOD));
     public static final Block BAMBOO_PLANKS = new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS));
-    public static final Block ENCHANTED_PUMPKIN = new EnchantedPumpkin(FabricBlockSettings.copyOf(Blocks.CARVED_PUMPKIN));
+    public static final Block ENCHANTED_PUMPKIN = new EnchantedPumpkinBlock(FabricBlockSettings.copyOf(Blocks.CARVED_PUMPKIN));
 
     public static final Block BLACK_CONCRETE_STAIRS = new CustomStairsBlock(Blocks.BLACK_CONCRETE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.BLACK_CONCRETE));
     public static final Block GRAY_CONCRETE_STAIRS = new CustomStairsBlock(Blocks.GRAY_CONCRETE.getDefaultState(), AbstractBlock.Settings.copy(Blocks.BLACK_CONCRETE));
@@ -118,7 +118,7 @@ public class BlockRegistry {
         //createBlock("spruce_chest", SPRUCE_CHEST);
         //createBlock("beacon_extender", BEACON_EXTENDER);
         createBlock("nether_star_block", NETHER_STAR_BLOCK, new NetherStarBlockItem(NETHER_STAR_BLOCK, new Item.Settings().group(VPP_ITEM_GROUP)));
-        createBlock("stand", STAND);
+        createBlock("item_stand", ITEM_STAND);
         createBlock("infusion_stand", INFUSION_STAND);
         createBlock("burned_log", BURNED_LOG);
         createBlock("bamboo_planks", BAMBOO_PLANKS);

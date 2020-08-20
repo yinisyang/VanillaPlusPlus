@@ -9,17 +9,17 @@ import vanillaplusplus.common.BlockRegistry;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdvancedDispenser extends DispenserBlock {
+public class AdvancedDispenserBlock extends DispenserBlock {
 
     private static final List<Block> PLACEABLE_BLOCKS = new ArrayList<>();
 
-    public AdvancedDispenser(Settings settings) {
+    public AdvancedDispenserBlock(Settings settings) {
         super(settings);
 
         ItemDispenserBehavior placeBehavior = new ItemDispenserBehavior() {
             protected ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
                 BlockPos blockPos = pointer.getBlockPos().offset(pointer.getBlockState().get(DispenserBlock.FACING));
-                if (pointer.getBlockState().getBlock() instanceof AdvancedDispenser) {
+                if (pointer.getBlockState().getBlock() instanceof AdvancedDispenserBlock) {
                     if (pointer.getWorld().getBlockState(blockPos).isAir()) {
                         pointer.getWorld().setBlockState(blockPos, Block.getBlockFromItem(stack.getItem()).getDefaultState());
                         stack.decrement(1);

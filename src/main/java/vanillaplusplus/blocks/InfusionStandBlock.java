@@ -85,7 +85,7 @@ public class InfusionStandBlock extends StandBlock implements BlockEntityProvide
         for (Direction dir: directions) {
             for (int i = 0; i < MAX_SEARCH_DISTANCE; i++) {
                 BlockPos cur = pos.offset(dir, i);
-                if (world.getBlockState(cur).isOf(BlockRegistry.STAND)) {
+                if (world.getBlockState(cur).isOf(BlockRegistry.ITEM_STAND)) {
                     inventories.add((StandBlockEntity) world.getBlockEntity(cur));
                     break;
                 }
