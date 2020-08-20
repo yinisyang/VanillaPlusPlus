@@ -1,5 +1,6 @@
 package vanillaplusplus.util;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.block.EnchantingTableBlock;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentLevelEntry;
@@ -67,6 +68,10 @@ public class ItemStandRecipe {
         return this;
     }
 
+    ItemStandRecipe withOutput(Item item) {
+        return withOutput(new ItemStack(item));
+    }
+
     ItemStandRecipe withOutput(Item item, Enchantment enchantment, int level) {
         ItemStack stack = new ItemStack(item);
         EnchantedBookItem.addEnchantment(stack, new EnchantmentLevelEntry(enchantment, level));
@@ -82,7 +87,7 @@ public class ItemStandRecipe {
         return withOutput(enchantment, 1);
     }
 
-    ItemStandRecipe withBaseExperienceUsed(int levels) {
+    ItemStandRecipe withLevelsUsed(int levels) {
         this.baseLevelsUsed = levels;
         return this;
     }
@@ -108,14 +113,14 @@ public class ItemStandRecipe {
     }
 
     public ItemStack getOutput() {
-        return this.output;
+        return this.output.copy();
     }
 
     public int getLevelsUsed() {
         if (this.enchantedBookIngredientData != null) {
             return this.baseLevelsUsed * this.enchantedBookIngredientData.level;
         }
-        return 0;
+        return this.baseLevelsUsed;
     }
 
     private Map<Item, Integer> convertToMap(ItemStack[] convertInputs) {

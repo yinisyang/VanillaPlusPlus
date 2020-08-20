@@ -3,6 +3,7 @@ package vanillaplusplus.entities;
 import net.fabricmc.fabric.api.block.entity.BlockEntityClientSerializable;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundTag;
@@ -16,7 +17,11 @@ public class StandBlockEntity extends BlockEntity implements ImplementedInventor
     private DefaultedList<ItemStack> items = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
     public StandBlockEntity() {
-        super(EntityRegistry.STAND_BLOCK_ENTITY);
+        this(EntityRegistry.STAND_BLOCK_ENTITY);
+    }
+
+    public StandBlockEntity(BlockEntityType blockEntityType) {
+        super(blockEntityType);
     }
 
     @Override

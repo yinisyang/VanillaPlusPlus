@@ -1,25 +1,44 @@
 package vanillaplusplus.util;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.*;
+import vanillaplusplus.common.BlockRegistry;
 import vanillaplusplus.common.ItemRegistry;
+import vanillaplusplus.entities.StandBlockEntity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemStandRecipes {
 
-    public static ItemStack getResultIfRecipeExists(PlayerEntity player, ItemStack centerItem, ItemStack item1, ItemStack item2, ItemStack item3, ItemStack item4) {
+    public static ItemStack getResult(PlayerEntity player, ItemStack centerItem, ItemStack item1, ItemStack item2, ItemStack item3, ItemStack item4) {
         for (ItemStandRecipe recipe: RECIPES) {
             if (recipe.matchesInputs(centerItem, item1, item2, item3, item4)) {
                 if (player.experienceLevel >= recipe.getLevelsUsed()) {
-                    player.addExperienceLevels(-recipe.getLevelsUsed());
+                    if (recipe.getLevelsUsed() > 0)
+                        player.addExperienceLevels(-recipe.getLevelsUsed());
                     return recipe.getOutput();
                 }
             }
         }
         return ItemStack.EMPTY;
+    }
+
+    public static ItemStack getResult(PlayerEntity player, StandBlockEntity innerInventory, ArrayList<StandBlockEntity> outerInventories) {
+        if (outerInventories.size() != 4)
+            throw new IllegalArgumentException();
+
+        return getResult(
+                player,
+                innerInventory.getStack(0),
+                outerInventories.get(0).getStack(0),
+                outerInventories.get(1).getStack(0),
+                outerInventories.get(2).getStack(0),
+                outerInventories.get(3).getStack(0)
+        );
     }
 
     private static final ItemStandRecipe AQUA_AFFINITY = create()
@@ -140,6 +159,17 @@ public class ItemStandRecipes {
             .withIngredient(UNBREAKING_2)
             .withOutput(Enchantments.UNBREAKING, 3);
 
+    private static final ItemStandRecipe ENCHANTED_PUMPKIN = create()
+            .withCenterIngredient(Items.CARVED_PUMPKIN)
+            .withIngredient(ItemRegistry.MAGIC_DUST, 4)
+            .withLevelsUsed(0)
+            .withOutput(BlockRegistry.ENCHANTED_PUMPKIN.asItem());
+    private static final ItemStandRecipe ENCHANTED_PUMPKIN_ALT = create()
+            .withCenterIngredient(Items.JACK_O_LANTERN)
+            .withIngredient(ItemRegistry.MAGIC_DUST, 4)
+            .withLevelsUsed(0)
+            .withOutput(BlockRegistry.ENCHANTED_PUMPKIN.asItem());
+
     private static List<ItemStandRecipe> RECIPES = new ArrayList<>();
     static {
         RECIPES.add(AQUA_AFFINITY);
@@ -168,6 +198,8 @@ public class ItemStandRecipes {
         RECIPES.add(UNBREAKING);
         RECIPES.add(UNBREAKING_2);
         RECIPES.add(UNBREAKING_3);
+        RECIPES.add(ENCHANTED_PUMPKIN);
+        RECIPES.add(ENCHANTED_PUMPKIN_ALT);
     }
 
     private static ItemStandRecipe create() {

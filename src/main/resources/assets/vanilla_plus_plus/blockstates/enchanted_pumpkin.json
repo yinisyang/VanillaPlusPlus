@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=east": {
+            "model": "vanilla_plus_plus:block/enchanted_pumpkin",
+            "y": 90
+        },
+        "facing=north": {
+            "model": "vanilla_plus_plus:block/enchanted_pumpkin"
+        },
+        "facing=south": {
+            "model": "vanilla_plus_plus:block/enchanted_pumpkin",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "vanilla_plus_plus:block/enchanted_pumpkin",
+            "y": 270
+        }
+    }
+}

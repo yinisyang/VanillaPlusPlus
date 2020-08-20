@@ -1,0 +1,78 @@
+{
+    "__comment": "Model generated using MrCrayfish's Model Creator (https://mrcrayfish.com/tools?id=mc)",
+    "textures": {
+        "particle": "minecraft:block/anvil",
+        "anvil": "minecraft:block/anvil"
+    },
+    "display": {
+        "gui": {
+            "rotation": [ 30, 45, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 0.625, 0.625, 0.625 ]
+        },
+        "ground": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 3, 0 ],
+            "scale": [ 0.25, 0.25, 0.25 ]
+        },
+        "fixed": {
+            "rotation": [ 0, 180, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
+        },
+        "head": {
+            "rotation": [ 0, 180, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 1, 1, 1 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 0, 315, 0 ],
+            "translation": [ 0, 2.5, 0 ],
+            "scale": [ 0.4, 0.4, 0.4 ]
+        },
+        "thirdperson_righthand": {
+            "rotation": [ 10, 289, 0 ],
+            "translation": [ 0, 0.5, 0 ],
+            "scale": [ 0.375, 0.375, 0.375 ]
+        }
+    },
+    "elements": [
+        {
+            "name": "Cube",
+            "from": [ 0, 0, 0 ], 
+            "to": [ 16, 3, 16 ], 
+            "faces": {
+                "north": { "texture": "#anvil", "uv": [ 0, 0, 16, 3 ] },
+                "east": { "texture": "#anvil", "uv": [ 0, 0, 16, 3 ] },
+                "south": { "texture": "#anvil", "uv": [ 0, 0, 16, 3 ] },
+                "west": { "texture": "#anvil", "uv": [ 0, 0, 16, 3 ] },
+                "up": { "texture": "#anvil", "uv": [ 0, 0, 16, 16 ] },
+                "down": { "texture": "#anvil", "uv": [ 0, 0, 16, 16 ] }
+            }
+        },
+        {
+            "name": "Cube",
+            "from": [ 3, 3, 3 ], 
+            "to": [ 13, 13, 13 ], 
+            "faces": {
+                "north": { "texture": "#anvil", "uv": [ 0, 0, 10, 10 ] },
+                "east": { "texture": "#anvil", "uv": [ 0, 0, 10, 10 ] },
+                "south": { "texture": "#anvil", "uv": [ 0, 0, 10, 10 ] },
+                "west": { "texture": "#anvil", "uv": [ 0, 0, 10, 10 ] }
+            }
+        },
+        {
+            "name": "Cube",
+            "from": [ 0, 13, 0 ], 
+            "to": [ 16, 16, 16 ], 
+            "faces": {
+                "north": { "texture": "#anvil", "uv": [ 0, 0, 16, 3 ] },
+                "east": { "texture": "#anvil", "uv": [ 0, 0, 16, 3 ] },
+                "south": { "texture": "#anvil", "uv": [ 0, 0, 16, 3 ] },
+                "west": { "texture": "#anvil", "uv": [ 0, 0, 16, 3 ] },
+                "up": { "texture": "#anvil", "uv": [ 0, 0, 16, 16 ] },
+                "down": { "texture": "#anvil", "uv": [ 0, 0, 16, 16 ] }
+            }
+        }
+    ]
+}

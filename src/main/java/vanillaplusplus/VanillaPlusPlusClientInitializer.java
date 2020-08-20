@@ -10,6 +10,8 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
+import vanillaplusplus.entities.InfusionStandBlockEntity;
+import vanillaplusplus.entities.renderers.InfusionStandBlockEntityRenderer;
 import vanillaplusplus.entities.renderers.StandBlockEntityRenderer;
 
 @Environment(EnvType.CLIENT)
@@ -21,5 +23,6 @@ public class VanillaPlusPlusClientInitializer implements ClientModInitializer {
                 (dispatcher, ctx) -> new FlyingItemEntityRenderer<>(dispatcher, ctx.getItemRenderer()));
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.STEEL_SCAFFOLD, RenderLayer.getCutout());
         BlockEntityRendererRegistry.INSTANCE.register(EntityRegistry.STAND_BLOCK_ENTITY, StandBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.INSTANCE.register(EntityRegistry.INFUSION_STAND_BLOCK_ENTITY, InfusionStandBlockEntityRenderer::new);
     }
 }
