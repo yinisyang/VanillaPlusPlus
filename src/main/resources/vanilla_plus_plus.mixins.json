@@ -9,7 +9,8 @@
     "SwordItemMixin",
     "FallingBlockMixin",
     "SaplingBlockMixin",
-    "MilkBucketMixin"
+    "MilkBucketMixin",
+    "CarvedPumpkinBlockMixin"
   ],
   "client": [
     "ItemEntityMixin",
